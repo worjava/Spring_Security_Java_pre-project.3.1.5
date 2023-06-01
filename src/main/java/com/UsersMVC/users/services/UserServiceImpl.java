@@ -35,18 +35,30 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+<<<<<<< HEAD
     public List<User> getAllUsers() {
+=======
+    public List<User> index() {
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
         return userRepository.findAll();
     }
 
     @Override
+<<<<<<< HEAD
     public User getUserById(int id) {
+=======
+    public User show(int id) {
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
     @Transactional
+<<<<<<< HEAD
     public void saveUser(@Valid User person) {
+=======
+    public void save(@Valid User person) {
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
         String hashedPassword = passwordEncoder.encode(person.getPassword());
         person.setPassword(hashedPassword);
         userRepository.save(person);
@@ -55,10 +67,21 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
+<<<<<<< HEAD
     public void deleteUserById(int id) {
         userRepository.deleteById(id);
     }
 
+=======
+    public void delete(int id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean existsUserByEmail(String email) {
+        return userRepository.findByEmail(email).isPresent();
+    }
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
 
 
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
@@ -69,8 +92,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return user.get();
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+    ;
+
+
+    private Collection<? extends GrantedAuthority> authoritiesAllRoles(Collection<Role> roles) {
+        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+    }
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
 }
 

@@ -36,6 +36,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
         roleRepository.save(adminRole);
         roleRepository.save(userRole);
 
+<<<<<<< HEAD
         User adminUser = new User();
         adminUser.setFirstname("admin");
         adminUser.setLastname("admin1");
@@ -56,3 +57,12 @@ public class MyCommandLineRunner implements CommandLineRunner {
     }
 }
 
+=======
+        userRepository.saveAll(List.of(
+                new User("admin", "admin1", 25, "admin@gmail.com","$2a$12$c/GWhaE4h/Hp47iPsMR94.4R5Gtkvz89tEjLms6ZzzOs.OJ3YCtsy", Set.of(adminRole)),
+                new User("user", "user1", 25, "user@gmail.com","$2a$12$c/GWhaE4h/Hp47iPsMR94.4R5Gtkvz89tEjLms6ZzzOs.OJ3YCtsy", Set.of(userRole))
+                //пароль для аунтификации 100
+        ));
+    }
+}
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26

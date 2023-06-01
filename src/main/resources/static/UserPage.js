@@ -20,7 +20,10 @@ function thisUser() {
         })
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
 thisUser()
 
