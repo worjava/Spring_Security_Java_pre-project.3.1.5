@@ -30,7 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-<<<<<<< HEAD
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api").permitAll()
@@ -44,20 +43,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().permitAll();
     }
 
-=======
-                    http.csrf().disable()
-                    .authorizeRequests()
-                    .antMatchers("/api").permitAll()
-                    .antMatchers("/api/admin/**").hasRole("ADMIN")
-                    .antMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
-                    .anyRequest().authenticated()
-                    .and()
-                    .formLogin().loginPage("/login")
-                    .loginProcessingUrl("/process_login")
-                    .successHandler(successUserHandler).permitAll().and()
-                    .logout().permitAll();
-        }
->>>>>>> 31623b5ce9a71f7899ad090bf2bf5b9f636aed26
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
